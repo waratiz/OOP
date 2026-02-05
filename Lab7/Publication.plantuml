@@ -1,0 +1,61 @@
+@startuml
+package Lab7 {
+
+    class Publication {
+        - publisher : String
+        - page_no : int
+        - price : double
+        - title : String
+
+        + Publication()
+        + Publication(publisher : String, page_no : int, price : double, title : String)
+
+        + getPublisher() : String
+        + getPage_no() : int
+        + getPrice() : double
+        + getTitle() : String
+
+        + setPublisher(publisher : String) : void
+        + setPage_no(page_no : int) : void
+        + setPrice(price : double) : void
+        + setTitle(title : String) : void
+
+        + pubPrint() : String
+    }
+
+    class Magazine {
+        - pub_unit : String
+
+        + Magazine()
+        + Magazine(publisher : String, page_no : int, price : double, title : String, pub_unit : String)
+
+        + getPub_unit() : String
+        + setPub_unit(pub_unit : String) : void
+        + pubPrint() : String
+    }
+
+    class Book {
+        - author : String
+
+        + Book()
+        + Book(author : String)
+        + Book(author : String, publisher : String, page_no : int, price : double, title : String)
+
+        + pubPrint() : String
+    }
+
+    class KidsMagazine {
+        - rec_age : int
+
+        + KidsMagazine()
+        + KidsMagazine(rec_age : int)
+        + KidsMagazine(rec_age : int, publisher : String, page_no : int, price : double, title : String)
+
+        + pubPrint() : String
+    }
+
+    Publication <|-- Magazine
+    Publication <|-- Book
+    Publication <|-- KidsMagazine
+}
+@enduml
